@@ -148,8 +148,8 @@ export default {
         success(id, serverMsgId) {
           console.log("成功了");
           // 关闭表情弹窗
-          me.$parent.cancelEmoji()
-          me.$parent.closeFunModal()
+          me.$parent.$parent.cancelEmoji()
+          me.$parent.$parent.closeFunModal()
           disp.fire("em.chat.sendSuccess", id, me.userMessage);
         },
         fail(id, serverMsgId) {

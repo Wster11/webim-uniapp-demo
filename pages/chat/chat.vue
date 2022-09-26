@@ -312,8 +312,8 @@ export default {
           disp.fire("em.main.ready");
           //systemReady = true;
           //}
+          me.getChatList()
           me.setData({
-            arr: me.getChatList(),
             unReadSpotNum:
               getApp().globalData.unReadMessageNum > 99
                 ? "99+"
@@ -491,6 +491,7 @@ export default {
         array.sort((a, b) => {
           return b.dateTimeNum - a.dateTimeNum;
         });
+
         this.setData({
           arr: array,
         });
