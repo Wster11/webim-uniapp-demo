@@ -112,9 +112,8 @@ export default {
     agree(event) {
       var me = this; 
       // 同意（无回调）
-      WebIM.conn.subscribed({
+      WebIM.conn.acceptContactInvite({
         to: event.currentTarget.dataset.from,
-        message: "[resp:true]"
       }); 
       this.friendList.forEach(item => {
         if (item.from == event.currentTarget.dataset.from) {
@@ -154,15 +153,14 @@ export default {
         }
 
       };
-      WebIM.conn.getRoster(rosters);
+      WebIM.conn.getContacts(rosters);
     },
 
     reject(event) {
       var me = this; // 无回调
 
-      WebIM.conn.unsubscribed({
+      WebIM.conn.declineContactInvite({
         to: event.currentTarget.dataset.from,
-        message: "rejectAddFriend"
       });
       this.friendList.forEach(item => {
         if (item.from == event.currentTarget.dataset.from) {

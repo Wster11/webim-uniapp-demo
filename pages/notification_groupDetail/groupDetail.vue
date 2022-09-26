@@ -110,7 +110,7 @@ export default {
       console.log("event", event, "groupList>>", this.groupList);
       var me = this;
       // 同意（无回调）
-      WebIM.conn.agreeInviteIntoGroup({
+      WebIM.conn.acceptGroupInvite({
         invitee: WebIM.conn.context.userId,
         groupId: event.currentTarget.dataset.from,
         success: () => {
@@ -135,7 +135,7 @@ export default {
     },
     reject(event) {
       var me = this; // 无回调
-      WebIM.conn.rejectInviteIntoGroup({
+      WebIM.conn.rejectGroupInvite({
         invitee: WebIM.conn.context.userId,
         groupId: event.currentTarget.dataset.from,
         success: () => {

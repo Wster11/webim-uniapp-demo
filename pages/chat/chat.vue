@@ -324,7 +324,7 @@ export default {
           console.log(err);
         },
       };
-      WebIM.conn.getRoster(rosters);
+      WebIM.conn.getContacts(rosters);
     },
 
     // // 不包含陌生人版本

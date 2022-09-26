@@ -129,7 +129,7 @@
 	
 					}
 				};
-				uni.WebIM.conn.listGroupMember(options);
+				uni.WebIM.conn.listGroupMembers(options);
 			},
 	
 			getRenderList(list){

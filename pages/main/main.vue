@@ -307,7 +307,7 @@ export default {
         },
       };
 
-      WebIM.conn.getRoster(rosters);
+      WebIM.conn.getContacts(rosters);
     },
 
     moveFriend: function (message) {
@@ -329,15 +329,10 @@ export default {
       };
 
       if (message.type == "unsubscribe" || message.type == "unsubscribed") {
-        WebIM.conn.removeRoster({
+        WebIM.conn.deleteContact({
           to: message.from,
-          success: function () {
-            WebIM.conn.unsubscribed({
-              to: message.from,
-            });
-            WebIM.conn.getRoster(rosters);
-          },
         });
+        WebIM.conn.getContacts(rosters);
       }
     },
     handleFriendMsg: function (message) {
@@ -346,18 +341,16 @@ export default {
         content: message.from + "请求加为好友",
         success: function (res) {
           if (res.confirm == true) {
-            WebIM.conn.subscribed({
+            WebIM.conn.acceptContactInvite({
               to: message.from,
-              message: "[resp:true]",
             });
-            WebIM.conn.subscribe({
+            WebIM.conn.addContact({
               to: message.from,
               message: "[resp:true]",
             });
           } else {
-            WebIM.conn.unsubscribed({
+            WebIM.conn.declineContactInvite({
               to: message.from,
-              message: "rejectAddFriend",
             });
           }
         },
@@ -376,7 +369,7 @@ export default {
 
         success(res) {
           if (res.confirm == true) {
-            WebIM.conn.removeRoster({
+            WebIM.conn.deleteContact({
               to: delName,
             });
             uni.showToast({

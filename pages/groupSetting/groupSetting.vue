@@ -120,7 +120,7 @@ export default {
         },
         error: function (err) { },
       };
-      WebIM.conn.listGroupMember(options);
+      WebIM.conn.listGroupMembers(options);
     },
     getGroupInfo: function () {
       var me = this;
@@ -179,7 +179,7 @@ export default {
           });
         },
       };
-      WebIM.conn.inviteToGroup(option);
+      WebIM.conn.inviteUsersToGroup(option);
     },
     isExistGroup: function (name, list) {
       for (let index = 0; index < list.length; index++) {
@@ -192,7 +192,7 @@ export default {
     },
     leaveGroup: function () {
       var me = this;
-      WebIM.conn.quitGroup({
+      WebIM.conn.leaveGroup({
         groupId: this.roomId,
         success: function () {
           uni.showToast({
@@ -222,7 +222,7 @@ export default {
     dissolveGroup: function () {
       var me = this; // 解散一个群组
 
-      WebIM.conn.dissolveGroup({
+      WebIM.conn.destroyGroup({
         groupId: this.roomId,
         success: function () {
           uni.showToast({

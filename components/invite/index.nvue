@@ -56,7 +56,7 @@
 						}
 					}
 				};
-				uni.WebIM.conn.listGroupMember(options);
+				uni.WebIM.conn.listGroupMembers(options);
 			},
 			checkboxChange(e){
 				console.log(e)
