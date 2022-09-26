@@ -344,10 +344,10 @@ export default {
             WebIM.conn.acceptContactInvite({
               to: message.from,
             });
-            WebIM.conn.addContact({
-              to: message.from,
-              message: "[resp:true]",
-            });
+            WebIM.conn.addContact(
+              message.from,
+              "[resp:true]"
+            );
           } else {
             WebIM.conn.declineContactInvite({
               to: message.from,
