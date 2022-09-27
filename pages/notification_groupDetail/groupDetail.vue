@@ -73,7 +73,7 @@ export default {
 
   onShow() {
     // getApp().globalData.saveGroupInvitedList = [];
-    uni.hideHomeButton()
+    uni.hideHomeButton && uni.hideHomeButton();
     this.listGroups();
   },
 

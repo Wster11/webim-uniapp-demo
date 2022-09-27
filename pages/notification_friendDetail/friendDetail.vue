@@ -85,7 +85,7 @@ export default {
     });
   },
   onShow(){
-    uni.hideHomeButton()
+    uni.hideHomeButton && uni.hideHomeButton();
   },
 
   methods: {
